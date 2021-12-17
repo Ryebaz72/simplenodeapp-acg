@@ -26,7 +26,12 @@ jobs:
         run: echo "The previous step has finished succesfully"
       - name: my third step
         uses: actions/checkout@v1
+        run: echo "The third step has finished"
+      - name: my fourth step
+        uses: actions/first-interaction@55b296e
         with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Message that will be displayed on users'' first issue'
+        pr-message: 'Message that will be displayed on users'' first pr'
+        
           
