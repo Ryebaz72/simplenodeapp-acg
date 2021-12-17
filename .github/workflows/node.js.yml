@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [12.x, 14.x]
+        node-version: [12.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -21,3 +21,6 @@ jobs:
           FIRST_NAME: Kenneth
           LAST_NAME: Rough
         run: echo $MY_VAR $FIRST_NAME $LAST_NAME
+      - name: my second step
+        if: success()
+        run: echo "The previous step has finished succesfully"
